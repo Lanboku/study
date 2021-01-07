@@ -1,6 +1,7 @@
 extern crate rand;
 
 use rand::Rng;
+use std::cmp::Ordering;
 use std::io;
 
 fn main() {
@@ -20,5 +21,15 @@ fn main() {
         .read_line(&mut guess) // ＆ で変数の参照
         .expect("Failed to read line");
 
+    // shadowing で同じ変数名を再定義できる
+    // trim で 前後の空白（改行含む）を除去して parse で u32 に変換
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+
     println!("You guessed: {}", guess);
+
+    match guess.cmp(&secret_number) {
+        Ordering::Less => println!("Too samll!"),
+        Ordering::Greater => println!("Too big!"),
+        Ordering::Equal => println!("You win!"),
+    }
 }
