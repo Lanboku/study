@@ -9,3 +9,6 @@
 
 [The Rust Programming Language - 日本語](https://doc.rust-jp.rs/book-ja/title-page.html)
 
+## rust/algorithm
+
+アルゴリズムとデータ構造の勉強用
