@@ -18,6 +18,9 @@
           v-on:change="saveTaskList"
         />{{ task.title }}
       </div>
+      <button v-on:click="deleteAllCheckedTasks">
+        チェックしたタスクをすべて削除
+      </button>
     </div>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="./index.js"></script>

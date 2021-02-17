@@ -20,7 +20,6 @@ const vm = new Vue({
     },
     // フォームに入力されたタスクをリストに追加
     addTask: function () {
-      // フォームが空だった場合は何もしない
       if (this.newTask === "") return;
       this.taskList.push({
         title: this.newTask,
@@ -29,6 +28,12 @@ const vm = new Vue({
 
       // タスクの追加後に入力フォームを初期化
       this.newTask = "";
+      this.saveTaskList();
+    },
+    // チェックしたすべてのタスクを削除
+    deleteAllCheckedTasks: function () {
+      if (this.taskList.length === 0) return;
+      this.taskList = this.taskList.filter((i) => !i.isChecked);
       this.saveTaskList();
     },
   },
