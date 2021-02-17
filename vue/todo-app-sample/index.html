@@ -12,7 +12,11 @@
         <button v-on:click="addTask">追加</button>
       </div>
       <div v-for="task in taskList">
-        <input type="checkbox" v-model="task.isChecked" />{{ task.title }}
+        <input
+          type="checkbox"
+          v-model="task.isChecked"
+          v-on:change="saveTaskList"
+        />{{ task.title }}
       </div>
     </div>
     <script src="https://unpkg.com/vue/dist/vue.js"></script>

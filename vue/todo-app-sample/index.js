@@ -4,7 +4,16 @@ const vm = new Vue({
     newTask: "",
     taskList: [],
   },
+  mounted: function () {
+    this.loadTaskList();
+  },
   methods: {
+    loadTaskList: function () {
+      this.taskList = JSON.parse(localStorage.getItem("tasks"));
+    },
+    saveTaskList: function () {
+      localStorage.setItem("tasks", JSON.stringify(this.taskList));
+    },
     addTask: function () {
       this.taskList.push({
         title: this.newTask,
@@ -12,6 +21,7 @@ const vm = new Vue({
       });
 
       this.newTask = "";
+      this.saveTaskList();
     },
   },
 });
