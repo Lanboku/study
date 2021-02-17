@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo Sample</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <div id="app">
+    <div id="app" v-cloak>
       <div>
         <input type="text" v-model="newTask" />
         <button v-on:click="addTask">追加</button>
